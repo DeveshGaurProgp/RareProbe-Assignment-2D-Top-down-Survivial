@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager Instance;
 
     [SerializeField] private GameObject[] m_Enemies;
+    private AudioSource m_AS;
 
     [Header("Pools")]
     private Queue<GameObject> m_WalkersPool = new Queue<GameObject>();
     private Queue<GameObject> m_RunnerPool = new Queue<GameObject>();
     private Queue<GameObject> m_BigBullPool = new Queue<GameObject>();
 
-    
+    [Header("Settings")]
     private float m_SpawnTimer = 0f;
     private float m_RiskZoneTiming = 45f;
     private float m_DeathZoneTiming = 90f;
@@ -29,6 +31,11 @@ public class EnemyManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+
+    void Start()
+    {
+        m_AS = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -107,5 +114,6 @@ public class EnemyManager : MonoBehaviour
             default:
                 break;
         }
+        m_AS.Play();
     }
 }

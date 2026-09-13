@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [Header("Settings")]
     private float m_ProjectileSpeed = 5f;
     private int m_DamagePower = 25;
 

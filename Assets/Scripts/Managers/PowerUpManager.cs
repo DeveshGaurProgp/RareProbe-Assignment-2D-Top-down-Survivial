@@ -1,14 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class PowerUpManager : MonoBehaviour
 {
     public static PowerUpManager Instance;
 
     [SerializeField] private GameObject m_HealthPowerUp;
+    private AudioSource m_AS;
 
+    [Header("Pools")]
     private Queue<GameObject> m_HealthPowerUpsPool = new Queue<GameObject>();
 
+    [Header("Settings")]
     private float m_MaxSpawnX = 9.5f;
     private float m_MaxSpawnY = 5f;
     private float m_ZPosition = 0f;
@@ -24,6 +28,11 @@ public class PowerUpManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+    }
+
+    void Start()
+    {
+        m_AS = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -70,5 +79,6 @@ public class PowerUpManager : MonoBehaviour
         m_PowerUpsCount--;
         PowerUp.SetActive(false);
         m_HealthPowerUpsPool.Enqueue(PowerUp);
+        m_AS.Play();
     }
 }

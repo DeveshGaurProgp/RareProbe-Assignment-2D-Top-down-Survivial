@@ -20,8 +20,6 @@ public class InputManager : MonoBehaviour
     public Vector2 Attack { get; private set; }
     public bool Pause { get; private set; } = false;
 
-    public event Action OnGamePause;
-
     void Awake()
     {
         if(Instance == null) Instance = this;

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -14,8 +15,10 @@ public class GameManager : MonoBehaviour
     private GameState m_GameState;
 
     [SerializeField] private PlayerController m_PlayerController;
+    private AudioSource m_AS;
 
     public bool m_IsPlaying;
+
     public float GameTimer { get; private set; } = 0f;
     public int GameScore { get; set; } = 0;
     public int GameHighestScore { get; private set; }
@@ -43,6 +46,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        m_AS = GetComponent<AudioSource>();
         Playing();
     }
 
@@ -75,6 +79,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt("Highest Score", GameScore);
             PlayerPrefs.Save();
         }
+        m_AS.Play();
         OnGameOver?.Invoke();
     }
 

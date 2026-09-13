@@ -1,13 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class ProjectileManager : MonoBehaviour
 {
     public static ProjectileManager Instance;
 
     [SerializeField] private GameObject m_ProjectilePrefab;
+    private AudioSource m_AS;
+
+    [Header("Pools")]
     private Queue<GameObject> m_ProjectilePool = new Queue<GameObject>();
 
+    [Header("Settings")]
     [SerializeField] private Transform m_Player;
     private float m_SpawnTimer = 0f;
     private float m_SpawnInterval = 0.5f;
@@ -22,6 +27,11 @@ public class ProjectileManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        m_AS = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (GameManager.Instance.m_IsPlaying) SpawnProjectile();
@@ -33,6 +43,7 @@ public class ProjectileManager : MonoBehaviour
         if(m_SpawnTimer > m_SpawnInterval)
         {
             PoolProjectile();
+            m_AS.Play();
             m_SpawnTimer = 0f;
         }
     }

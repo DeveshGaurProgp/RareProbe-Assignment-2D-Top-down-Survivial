@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour, IHealth
     private float m_MoveSpeed = 2f;
     private float m_XRange = 9.8f;
     private float m_YRange = 5.5f;
+
     public int Health { get; set; }
     private int m_MaxHealth = 100;
 
