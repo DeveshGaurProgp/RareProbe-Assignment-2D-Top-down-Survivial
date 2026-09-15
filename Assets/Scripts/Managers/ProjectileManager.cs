@@ -15,7 +15,7 @@ public class ProjectileManager : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private Transform m_Player;
     private float m_SpawnTimer = 0f;
-    private float m_SpawnInterval = 0.5f;
+    private const float m_SpawnInterval = 0.5f;
 
     void Awake()
     {

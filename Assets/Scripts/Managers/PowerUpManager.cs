@@ -13,12 +13,12 @@ public class PowerUpManager : MonoBehaviour
     private Queue<GameObject> m_HealthPowerUpsPool = new Queue<GameObject>();
 
     [Header("Settings")]
-    private float m_MaxSpawnX = 9.5f;
-    private float m_MaxSpawnY = 5f;
-    private float m_ZPosition = 0f;
+    private const float m_MaxSpawnX = 8.4f;
+    private const float m_MaxSpawnY = 5f;
+    private const float m_ZPosition = 0f;
 
     private int m_PowerUpsCount = 0;
-    private int m_MaxPowerUp = 3;
+    private const int m_MaxPowerUp = 3;
 
     void Awake()
     {

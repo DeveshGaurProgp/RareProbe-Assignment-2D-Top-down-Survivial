@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         m_HighestScore.text = GameManager.Instance.GameHighestScore.ToString();
     }
 
-    private void ShowPauseMenu()
+    public void ShowPauseMenu()
     {
         m_GameUI.SetActive(false);
         m_PauseMenu.SetActive(true);

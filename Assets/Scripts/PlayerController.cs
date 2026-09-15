@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour, IHealth
     private Rigidbody2D m_Rb;
 
     [Header("Settings")]
-    private float m_MoveSpeed = 2f;
-    private float m_XRange = 9.8f;
-    private float m_YRange = 5.5f;
+    private const float m_MoveSpeed = 2f;
+    private const float m_XRange = 8.5f;
+    private const float m_YRange = 5.5f;
 
     public int Health { get; set; }
-    private int m_MaxHealth = 100;
+    private const int m_MaxHealth = 100;
 
     public event Action OnHealthChange;
     public event Action OnPlayerDied;

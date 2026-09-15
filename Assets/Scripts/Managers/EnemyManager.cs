@@ -16,12 +16,12 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Settings")]
     private float m_SpawnTimer = 0f;
-    private float m_RiskZoneTiming = 45f;
-    private float m_DeathZoneTiming = 90f;
+    private const float m_RiskZoneTiming = 45f;
+    private const float m_DeathZoneTiming = 90f;
 
-    private float m_MaxSpawnX = 14f;
-    private float m_MaxSpawnY = 8f;
-    private float m_ZPosition = 0f;
+    private const float m_MaxSpawnX = 14f;
+    private const float m_MaxSpawnY = 8f;
+    private const float m_ZPosition = 0f;
 
     void Awake()
     {

@@ -3,11 +3,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [Header("Settings")]
-    private float m_ProjectileSpeed = 5f;
-    private int m_DamagePower = 25;
+    private const float m_ProjectileSpeed = 5f;
+    private const int m_DamagePower = 25;
 
-    private float m_MaxXRange = 20f;
-    private float m_MaxYRange = 10f;
+    private const float m_MaxXRange = 20f;
+    private const float m_MaxYRange = 10f;
 
     void OnTriggerEnter2D(Collider2D other)
     {

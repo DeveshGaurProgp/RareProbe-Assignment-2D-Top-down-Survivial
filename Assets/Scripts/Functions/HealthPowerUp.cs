@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthPowerUp : MonoBehaviour , IPowerUp
 {
-    private int m_HealingAmount = 50;
+    private const int m_HealingAmount = 50;
 
     void OnTriggerEnter2D(Collider2D other)
     {
